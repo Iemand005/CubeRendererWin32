@@ -170,9 +170,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             graphics->Render(10.0f, -3.0f, -2.0f, 0.0f);
         }
         break;
-    case WM_MBUTTONDOWN:    graphics->MouseDown(GET_X_LPARAM(lParam)); break;
-    case WM_MOUSEMOVE:      graphics->MouseMove(GET_X_LPARAM(lParam)); break;
-    case WM_MBUTTONUP:      graphics->MouseUp(); break;
+    case WM_LBUTTONDOWN:
+        graphics->MouseDown(GET_X_LPARAM(lParam));
+        break;
+    case WM_MOUSEMOVE:
+        graphics->MouseMove(GET_X_LPARAM(lParam));
+        break;
+    case WM_LBUTTONUP:      graphics->MouseUp(); break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
