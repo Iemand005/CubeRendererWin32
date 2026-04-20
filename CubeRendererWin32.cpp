@@ -53,7 +53,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DispatchMessage(&msg);
         }
 
-        if (graphics) graphics->Render(0.0f, 0.0f, 0.0f, 0.0f);
+        if (graphics) graphics->Render();
     }
 
     return (int) msg.wParam;
@@ -198,7 +198,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: Add any drawing code that uses hdc here...
+
+            if (graphics) graphics->Render();
+
             EndPaint(hWnd, &ps);
         }
         break;
