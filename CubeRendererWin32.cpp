@@ -169,6 +169,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             graphics->Resize(width, height);
             graphics->Render(10.0f, -3.0f, -2.0f, 0.0f);
         }
+    case WM_MBUTTONDOWN:
+        {
+            int x = GET_X_LPARAM(lParam), y = GET_Y_LPARAM(lParam);
+            graphics->MouseDown(x, y);
+        }
+    case WM_MOUSEMOVE:
+        {
+            int x = GET_X_LPARAM(lParam), y = GET_Y_LPARAM(lParam);
+            graphics->MouseMove(x, y);
+        }
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
